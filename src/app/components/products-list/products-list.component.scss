@@ -1,0 +1,64 @@
+:host {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 15px;
+
+  .action-bar,
+  .pagination {
+    height: 10%;
+  }
+  .action-bar {
+    display: flex;
+    align-items: center;
+  }
+  .list-container {
+    height: 80%;
+    overflow: hidden;
+  }
+  .prodact-card:not(:last-child) {
+    margin-bottom: 14px;
+  }
+  .selected {
+    background-color: grey;
+  }
+  .pagination {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+    padding-right: 10px;
+  }
+}
+
+:host ::ng-deep .ngx-pagination {
+  // .pagination-previous::before,
+  .pagination-next a::after,
+  .pagination-previous a::before,
+  .pagination-next.disabled::after {
+    content: "";
+    position: absolute;
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+    width: 10px;
+    height: 10px;
+  }
+  .pagination-next.disabled::after,
+  .pagination-previous.disabled::before {
+    content: "";
+    border-left: 2px solid #cacaca;
+    border-top: 2px solid #cacaca;
+  }
+  .pagination-previous.disabled::before {
+    width: 10px;
+    height: 10px;
+    transform: translate(80%, 15%) rotate(315deg);
+  }
+  .pagination-previous a::before {
+    transform: translate(-120%, 35%) rotate(315deg);
+  }
+  .pagination-next a::after,
+  .pagination-next.disabled::after {
+    transform: translate(-60%, 35%) rotate(130deg);
+  }
+}

@@ -1,0 +1,22 @@
+<button class="add-btn">+ Add</button>
+<input
+  class="search"
+  type="text"
+  #search
+  placeholder="search product"
+  (keyup)="onSearch(search.value)"
+/>
+<div class="sort">
+  <label class="sort-lable" for="sort">Sort by</label>
+  <select
+    class="sort-select"
+    name="sort"
+    #sort
+    id="sort"
+    (change)="onSortChange(sort.value)"
+  >
+    <option value="none"></option>
+    <option value="name">Name</option>
+    <option value="price">Price</option>
+  </select>
+</div>

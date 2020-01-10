@@ -1,0 +1,12 @@
+<div class="root">
+  <app-products-list
+    (selectedProduct)="onSelectedProduct($event)"
+    (search)="onSearch($event)"
+    (sort)="onSort($event)"
+    [products]="searchedProducts"
+  ></app-products-list>
+  <app-product-details
+    [selectedProduct]="selectedProduct"
+    [products]="products"
+  ></app-product-details>
+</div>

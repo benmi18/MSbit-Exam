@@ -1,0 +1,35 @@
+<div class="action-bar">
+  <app-action-bar
+    (sortBy)="onSortProducts($event)"
+    (search)="onSearch($event)"
+  ></app-action-bar>
+</div>
+<div class="list-container">
+  <div
+    class="prodact-card"
+    *ngFor="
+      let product of products
+        | async
+        | paginate: { itemsPerPage: 5, currentPage: p }
+    "
+    (click)="ocClick(product)"
+    [ngClass]="{ selected: product.id === selectedProductId }"
+  >
+    <app-product-card [product]="product"></app-product-card>
+  </div>
+
+  <app-error
+    *ngIf="!(products | async).length"
+    [message]="'No data to display'"
+    [type]="errorType"
+  ></app-error>
+</div>
+<div class="pagination">
+  <pagination-controls
+    class="pagination-controls"
+    (pageChange)="p = $event"
+    nextLabel="Next Page"
+    previousLabel="Prev Page"
+    responsive="true"
+  ></pagination-controls>
+</div>
