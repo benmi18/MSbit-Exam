@@ -62,3 +62,27 @@
     transform: translate(-60%, 35%) rotate(130deg);
   }
 }
+
+@media only screen and (max-width: 768px) {
+  :host {
+    height: 100vh;
+
+    .action-bar {
+      height: 10vh;
+    }
+    .list-container {
+      height: 65vh;
+    }
+    .pagination {
+      padding: 0;
+      justify-content: center;
+    }
+
+    .prodact-card {
+      background-color: #e9eff0;
+    }
+    .selected {
+      background-color: grey;
+    }
+  }
+}

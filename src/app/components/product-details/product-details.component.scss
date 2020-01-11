@@ -85,3 +85,25 @@
     }
   }
 }
+
+@media only screen and (max-width: 768px) {
+  :host {
+    .details-card {
+      padding: 10px;
+      padding-top: 25px;
+      height: 100%;
+      border: 0;
+
+      .title {
+        position: absolute;
+        padding: 5px;
+        top: -20px;
+        z-index: 2;
+      }
+
+      .column {
+        width: 33%;
+      }
+    }
+  }
+}
