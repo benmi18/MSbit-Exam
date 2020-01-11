@@ -8,5 +8,7 @@
   <app-product-details
     [selectedProduct]="selectedProduct"
     [products]="products"
+    (saveProduct)="onSaveProduct($event)"
   ></app-product-details>
+  <app-alert [showAlert]="showAlert" [message]="alertMessage"></app-alert>
 </div>

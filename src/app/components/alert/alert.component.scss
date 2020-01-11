@@ -1,0 +1,27 @@
+.container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(97, 106, 107, 0.7);
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  .alert {
+    width: 700px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(39, 174, 96, 0.8);
+    border-radius: 15px;
+    color: white;
+    font-size: 24px;
+  }
+}
+.display {
+  display: flex;
+}

@@ -1,4 +1,10 @@
-import { Component, OnInit, Input, OnChanges } from "@angular/core";
+import {
+  Component,
+  Input,
+  OnChanges,
+  Output,
+  EventEmitter
+} from "@angular/core";
 import { ProductModal } from "src/app/modals/product.modal";
 import { ErrorType } from "src/app/enums/errorType.enum";
 import {
@@ -15,7 +21,8 @@ import { of } from "rxjs";
   templateUrl: "./product-details.component.html",
   styleUrls: ["./product-details.component.scss"]
 })
-export class ProductDetailsComponent implements OnInit, OnChanges {
+export class ProductDetailsComponent implements OnChanges {
+  @Output() saveProduct: EventEmitter<ProductModal> = new EventEmitter();
   @Input() selectedProduct: ProductModal;
   @Input() products: ProductModal[];
 
@@ -43,8 +50,6 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
       url: ""
     });
   }
-
-  ngOnInit() {}
 
   ngOnChanges() {
     this.resetErrors();
@@ -107,6 +112,10 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
     } else {
       this.idError = null;
     }
+  }
+
+  public onFormSbmit() {
+    this.saveProduct.emit(this.productForm.value);
   }
 
   private resetErrors() {

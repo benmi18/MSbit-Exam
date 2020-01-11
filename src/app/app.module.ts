@@ -12,6 +12,7 @@ import { ProductDetailsComponent } from "./components/product-details/product-de
 import { ActionBarComponent } from "./components/action-bar/action-bar.component";
 import { ProductsListComponent } from "./components/products-list/products-list.component";
 import { ErrorComponent } from './components/error/error.component';
+import { AlertComponent } from './components/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ErrorComponent } from './components/error/error.component';
     ProductDetailsComponent,
     ActionBarComponent,
     ProductsListComponent,
-    ErrorComponent
+    ErrorComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,

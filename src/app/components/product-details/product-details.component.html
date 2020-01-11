@@ -1,4 +1,4 @@
-<div class="details-card" [formGroup]="productForm">
+<div class="details-card">
   <div class="title">
     {{
       selectedProduct
@@ -16,102 +16,111 @@
       alt="demo"
     />
   </div>
-  <div class="row">
-    <div class="column">
-      <label class="label" for="name">Name</label>
-      <input
-        class="input-name"
-        name="name"
-        type="text"
-        placeholder="Product Name"
-        formControlName="name"
-        (keyup)="onNameChange(productForm.get('name'))"
-      />
-      <app-error
-        [message]="nameError"
-        [type]="errorType"
-        *ngIf="nameError"
-      ></app-error>
-    </div>
-    <div class="column">
-      <label class="label" for="creationDate">Created At</label>
-      <input
-        class="input-creation-date"
-        name="creationDate"
-        type="date"
-        placeholder="Created At"
-        formControlName="creationDate"
-        (change)="onCreationDateChange(productForm.get('creationDate'))"
-      />
-      <app-error
-        [message]="creationDateError"
-        *ngIf="creationDateError"
-      ></app-error>
-    </div>
-    <div class="column">
-      <label class="label" for="id">ID</label>
-      <input
-        class="input-id"
-        name="id"
-        type="text"
-        placeholder="ID"
-        formControlName="id"
-        (keyup)="onidChange(productForm.get('id'))"
-      />
-      <app-error
-        [message]="idError"
-        [type]="errorType"
-        *ngIf="idError"
-      ></app-error>
-    </div>
-  </div>
-  <div class="row">
-    <div class="column description">
-      <label class="label" for="description">Description</label>
-      <textarea
-        class="input-description"
-        name="description"
-        cols="30"
-        rows="4"
-        formControlName="description"
-      ></textarea>
-    </div>
-  </div>
-  <div class="row">
-    <div class="column">
-      <label class="label" for="thumbnailUrl">Thumbnail URL</label>
-      <input
-        class="input-thumbnailUrl"
-        name="thumbnailUrl"
-        type="string"
-        formControlName="thumbnailUrl"
-      />
-    </div>
-    <div class="column">
-      <label class="label" for="url">URL</label>
-      <input class="input-url" name="url" type="string" formControlName="url" />
-    </div>
-  </div>
-  <div class="row">
-    <div class="column">
-      <label class="label" for="price">Price</label>
-      <div class="price-input-container">
+  <form [formGroup]="productForm" (submit)="onFormSbmit()">
+    <div class="row">
+      <div class="column">
+        <label class="label" for="name">Name</label>
         <input
-          class="input-price"
-          name="price"
-          type="number"
-          formControlName="price"
-          (keyup)="onPriceChange(productForm.get('price'))"
-        /><span>$</span>
+          class="input-name"
+          name="name"
+          type="text"
+          placeholder="Product Name"
+          formControlName="name"
+          (keyup)="onNameChange(productForm.get('name'))"
+        />
+        <app-error
+          [message]="nameError"
+          [type]="errorType"
+          *ngIf="nameError"
+        ></app-error>
       </div>
-      <app-error
-        [message]="priceError"
-        [type]="errorType"
-        *ngIf="priceError"
-      ></app-error>
+      <div class="column">
+        <label class="label" for="creationDate">Created At</label>
+        <input
+          class="input-creation-date"
+          name="creationDate"
+          type="date"
+          placeholder="Created At"
+          formControlName="creationDate"
+          (change)="onCreationDateChange(productForm.get('creationDate'))"
+        />
+        <app-error
+          [message]="creationDateError"
+          *ngIf="creationDateError"
+        ></app-error>
+      </div>
+      <div class="column">
+        <label class="label" for="id">ID</label>
+        <input
+          class="input-id"
+          name="id"
+          type="text"
+          placeholder="ID"
+          formControlName="id"
+          (keyup)="onidChange(productForm.get('id'))"
+        />
+        <app-error
+          [message]="idError"
+          [type]="errorType"
+          *ngIf="idError"
+        ></app-error>
+      </div>
     </div>
-  </div>
-  <div class="row btn-row">
-    <button class="save-btn" [disabled]="productForm.invalid">Save</button>
-  </div>
+    <div class="row">
+      <div class="column description">
+        <label class="label" for="description">Description</label>
+        <textarea
+          class="input-description"
+          name="description"
+          cols="30"
+          rows="4"
+          formControlName="description"
+        ></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <label class="label" for="thumbnailUrl">Thumbnail URL</label>
+        <input
+          class="input-thumbnailUrl"
+          name="thumbnailUrl"
+          type="string"
+          formControlName="thumbnailUrl"
+        />
+      </div>
+      <div class="column">
+        <label class="label" for="url">URL</label>
+        <input
+          class="input-url"
+          name="url"
+          type="string"
+          formControlName="url"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <label class="label" for="price">Price</label>
+        <div class="price-input-container">
+          <input
+            class="input-price"
+            name="price"
+            type="number"
+            formControlName="price"
+            (keyup)="onPriceChange(productForm.get('price'))"
+          /><span>$</span>
+        </div>
+        <app-error
+          [message]="priceError"
+          [type]="errorType"
+          *ngIf="priceError"
+        ></app-error>
+      </div>
+    </div>
+    <div class="row btn-row">
+      <button type="submit" class="save-btn" [disabled]="productForm.invalid">
+        Save
+      </button>
+    </div>
+  </form>
 </div>

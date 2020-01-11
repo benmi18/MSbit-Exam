@@ -16,6 +16,8 @@ export class MainContainerComponent implements OnInit, OnDestroy {
   public products: ProductModal[];
   public searchedProducts: Observable<ProductModal[]> = of([]);
   public selectedProduct: ProductModal;
+  public alertMessage: string;
+  public showAlert: boolean;
 
   constructor(private dataService: DataService) {}
 
@@ -47,6 +49,22 @@ export class MainContainerComponent implements OnInit, OnDestroy {
     } else {
       this.products.sort((a, b) => (a.id > b.id ? 1 : -1));
     }
+  }
+
+  public onSaveProduct(productToSave: ProductModal) {
+    this.products = this.products.map(product => {
+      if (product.id === productToSave.id) {
+        this.selectedProduct = productToSave;
+        return productToSave;
+      }
+      return product;
+    });
+    this.searchedProducts = of(this.products);
+    this.alertMessage = `Thank you for updating product ${productToSave.name}`;
+    this.showAlert = true;
+    setTimeout(() => {
+      this.showAlert = false;
+    }, 2000);
   }
 
   ngOnDestroy() {
