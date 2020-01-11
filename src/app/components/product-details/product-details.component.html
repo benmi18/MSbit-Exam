@@ -27,7 +27,11 @@
         formControlName="name"
         (keyup)="onNameChange(productForm.get('name'))"
       />
-      <app-error [message]="nameError" *ngIf="nameError"></app-error>
+      <app-error
+        [message]="nameError"
+        [type]="errorType"
+        *ngIf="nameError"
+      ></app-error>
     </div>
     <div class="column">
       <label class="label" for="creationDate">Created At</label>
@@ -100,7 +104,11 @@
           (keyup)="onPriceChange(productForm.get('price'))"
         /><span>$</span>
       </div>
-      <app-error [message]="priceError" *ngIf="priceError"></app-error>
+      <app-error
+        [message]="priceError"
+        [type]="errorType"
+        *ngIf="priceError"
+      ></app-error>
     </div>
   </div>
   <div class="row btn-row">
