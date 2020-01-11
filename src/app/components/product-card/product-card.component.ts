@@ -11,7 +11,10 @@ export class ProductCardComponent implements OnInit {
   @Input() product: ProductModal;
 
   ngOnInit() {
-    VanillaTilt.init(document.querySelectorAll(".card-container"), {
+    const elements: HTMLElement[] = [
+      ...document.querySelectorAll(".card-container")
+    ];
+    VanillaTilt.init(elements, {
       max: 20,
       speed: 700
     });
