@@ -16,9 +16,12 @@
   .list-container {
     height: 80%;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
   .prodact-card:not(:last-child) {
     margin-bottom: 14px;
+    flex-grow: 1;
   }
   .selected {
     background-color: grey;
@@ -84,5 +87,12 @@
     .selected {
       background-color: grey;
     }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  :host {
+    width: 95%;
+    margin-right: 1%;
   }
 }

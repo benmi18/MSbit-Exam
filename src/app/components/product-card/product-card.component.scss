@@ -53,3 +53,28 @@
     }
   }
 }
+
+@media only screen and (max-width: 1024px) {
+  .card-container {
+    padding: 10px;
+
+    .card-image {
+      width: 30%;
+      display: flex;
+      align-items: center;
+    }
+
+    .card-sub-container {
+      width: 70%;
+
+      .card-delete-btn {
+        display: flex;
+        align-items: center;
+        .delete-btn {
+          width: 70px;
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
