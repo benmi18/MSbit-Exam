@@ -1,11 +1,4 @@
-import {
-  Component,
-  OnInit,
-  OnDestroy,
-  Output,
-  EventEmitter,
-  Input
-} from "@angular/core";
+import { Component, Output, EventEmitter, Input } from "@angular/core";
 import { ProductModal } from "src/app/modals/product.modal";
 import { SortType } from "src/app/enums/sortType.enum";
 import { ErrorType } from "src/app/enums/errorType.enum";
