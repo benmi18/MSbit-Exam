@@ -11,9 +11,8 @@ export class ProductCardComponent implements OnInit {
   @Input() product: ProductModal;
 
   ngOnInit() {
-    const elements: HTMLElement[] = [
-      ...document.querySelectorAll(".card-container")
-    ];
+    const elements = [];
+    document.querySelectorAll(".card-container").forEach(el => elements.push(el))
     VanillaTilt.init(elements, {
       max: 20,
       speed: 700
